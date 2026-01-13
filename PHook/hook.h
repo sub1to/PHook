@@ -4,6 +4,8 @@
 class IPHook
 {
 public:
+	virtual			~IPHook()		{ };
+
 	virtual void*	target()		{ return nullptr; };
 	virtual void*	trampoline()	{ return nullptr; };
 	virtual void*	hook()			{ return nullptr; };
@@ -18,6 +20,7 @@ class CPHook : protected IPHook
 {
 public:
 	CPHook();
+	virtual ~CPHook();
 
 	void*	target();
 	void*	trampoline();
@@ -43,14 +46,14 @@ class CPHookRelJmp : protected CPHook
 {
 public:
 	CPHookRelJmp(void* pTarget, void* pHook, size_t size);
-	~CPHookRelJmp();
+	virtual ~CPHookRelJmp();
 };
 
 class CPHookVTable : protected CPHook
 {
 public:
 	CPHookVTable(void* pTarget, void* pHook);
-	~CPHookVTable();
+	virtual ~CPHookVTable();
 
 	void*	trampoline();
 };
@@ -59,14 +62,14 @@ class CPHookCall : protected CPHook
 {
 public:
 	CPHookCall(void* pTarget, void* pHook, size_t size);
-	~CPHookCall();
+	virtual ~CPHookCall();
 };
 
 class CPHookPatch : protected CPHook
 {
 public:
 	CPHookPatch(void* pTarget, void* pHook, size_t size);
-	~CPHookPatch();
+	virtual ~CPHookPatch();
 };
 
 
