@@ -34,12 +34,12 @@ project "PHook"
 		symbols "On"
 		
 	filter "configurations:Dev*"
-		flags { "LinkTimeOptimization" }
+		linktimeoptimization "On"
 		optimize "Full"
 		symbols "Off"
 		
 	filter "configurations:Release*"
-		flags { "LinkTimeOptimization" }
+		linktimeoptimization "On"
 		defines { "NDEBUG" }
 		optimize "Full"
 		symbols "Off"
