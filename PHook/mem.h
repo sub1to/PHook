@@ -1,3 +1,11 @@
+/*
+	Copyright 2025-9999 sub1to
+
+	This file is part of PHook
+
+	PHook is free software; See LICENSE.MD or https://opensource.org/license/mit
+*/
+
 #ifndef MEM_H
 #define MEM_H
 
